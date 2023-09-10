@@ -1,18 +1,24 @@
 import React, { FC } from 'react';
-import {
-  SafeAreaView,
-  View,
-  Text,
-  TouchableOpacity,
-  ScrollView,
-} from 'react-native';
+import { ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import { useRoute, useNavigation } from '@react-navigation/native';
+
 import {
   ExerciseScreenNavigationProp,
   ExerciseScreenRouteProp,
 } from '../../types/navigation';
-import { colors, mainColors } from '../../constants/colors';
+import { colors } from '../../constants/colors';
+import {
+  Container,
+  ContentRow,
+  ContentWrapper,
+  GoBackButton,
+  Header,
+  Label,
+  Text,
+  WrappedLabel,
+  WrappedText,
+} from './styled';
 
 const Exercise: FC = () => {
   const { goBack } = useNavigation<ExerciseScreenNavigationProp>();
@@ -20,123 +26,41 @@ const Exercise: FC = () => {
   const { exercise, color } = route.params;
 
   return (
-    <SafeAreaView
-      style={{
-        flex: 1,
-        padding: 16,
-        backgroundColor: mainColors.white,
-      }}>
-      <TouchableOpacity style={{ marginBottom: 8 }} onPress={goBack}>
+    <Container>
+      <GoBackButton onPress={goBack}>
         <Icon name="chevron-left" size={30} color={colors.jeffHardy} />
-      </TouchableOpacity>
+      </GoBackButton>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <Text
-          style={{
-            marginBottom: 15,
-            fontSize: 24,
-            fontWeight: '900',
-            textAlign: 'center',
-            color: colors.jeffHardy,
-          }}>
-          {exercise.name}
-        </Text>
-        <View style={{ padding: 16, backgroundColor: color, borderRadius: 15 }}>
-          <View style={{ flexDirection: 'row', marginBottom: 8 }}>
-            <Text
-              style={{
-                fontSize: 18,
-                fontWeight: '900',
-                color: color === '#363636' ? colors.marlboro : colors.jeffHardy,
-              }}
-              children="Type: "
-            />
-            <Text
-              style={{
-                fontSize: 18,
-                fontWeight: '500',
-                color: color === '#363636' ? colors.marlboro : colors.jeffHardy,
-              }}
-              children={exercise.type}
-            />
-          </View>
-          <View style={{ flexDirection: 'row', marginBottom: 8 }}>
-            <Text
-              style={{
-                fontSize: 18,
-                fontWeight: '900',
-                color: color === '#363636' ? colors.marlboro : colors.jeffHardy,
-              }}
-              children="Muscle: "
-            />
-            <Text
-              style={{
-                fontSize: 18,
-                fontWeight: '500',
-                color: color === '#363636' ? colors.marlboro : colors.jeffHardy,
-              }}
-              children={exercise.muscle}
-            />
-          </View>
-          <View style={{ flexDirection: 'row', marginBottom: 8 }}>
-            <Text
-              style={{
-                fontSize: 18,
-                fontWeight: '900',
-                color: color === '#363636' ? colors.marlboro : colors.jeffHardy,
-              }}
-              children="Difficulty: "
-            />
-            <Text
-              style={{
-                fontSize: 18,
-                fontWeight: '500',
-                color: color === '#363636' ? colors.marlboro : colors.jeffHardy,
-              }}
-              children={exercise.difficulty}
-            />
-          </View>
-          <View style={{ flexDirection: 'row', marginBottom: 8 }}>
-            <Text
-              style={{
-                fontSize: 18,
-                fontWeight: '900',
-                color: color === '#363636' ? colors.marlboro : colors.jeffHardy,
-              }}
-              children="Equipment: "
-            />
-            <Text
-              style={{
-                fontSize: 18,
-                fontWeight: '500',
-                color: color === '#363636' ? colors.marlboro : colors.jeffHardy,
-              }}
-              children={exercise.equipment}
-            />
-          </View>
-          <View style={{ flexDirection: 'row', marginBottom: 8 }}>
-            <Text
-              style={{
-                fontSize: 18,
-                fontWeight: '900',
-                lineHeight: 24,
-                textAlign: 'justify',
-                color: color === '#363636' ? colors.marlboro : colors.jeffHardy,
-              }}>
+        <Header children={exercise.name} />
+        <ContentWrapper color={color}>
+          <ContentRow>
+            <Label children="Type: " color={color} />
+            <Text children={exercise.type} color={color} />
+          </ContentRow>
+          <ContentRow>
+            <Label children="Muscle: " color={color} />
+            <Text children={exercise.muscle} color={color} />
+          </ContentRow>
+          <ContentRow>
+            <Label children="Difficulty: " color={color} />
+            <Text children={exercise.difficulty} color={color} />
+          </ContentRow>
+          <ContentRow>
+            <Label children="Equipment: " color={color} />
+            <Text children={exercise.equipment} color={color} />
+          </ContentRow>
+          <ContentRow>
+            <WrappedLabel color={color}>
               Instructions:
-              <Text
-                style={{
-                  fontSize: 18,
-                  fontWeight: '500',
-                  color:
-                    color === '#363636' ? colors.marlboro : colors.jeffHardy,
-                }}
+              <WrappedText
                 children={` ${exercise.instructions}`}
+                color={color}
               />
-            </Text>
-          </View>
-        </View>
+            </WrappedLabel>
+          </ContentRow>
+        </ContentWrapper>
       </ScrollView>
-    </SafeAreaView>
+    </Container>
   );
 };
 
