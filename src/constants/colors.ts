@@ -11,6 +11,9 @@ export const colors: Colors = {
   travis: '#C39788',
   jeffHardy: '#363636',
   marlboro: '#FFFEF8',
+  drain: '#A0A0A0',
+  slay: '#D8D8D8',
+  please: '#FF003E',
 };
 
 export const mainColors = {

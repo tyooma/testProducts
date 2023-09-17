@@ -9,4 +9,7 @@ export interface Colors {
   travis: string;
   jeffHardy: string;
   marlboro: string;
+  drain: string;
+  slay: string;
+  please: string;
 }

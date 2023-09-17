@@ -74,9 +74,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.exercisesearchform"
+    namespace "com.testproducts"
     defaultConfig {
-        applicationId "com.exercisesearchform"
+        applicationId "com.testproducts"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

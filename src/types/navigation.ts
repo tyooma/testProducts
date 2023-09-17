@@ -1,41 +1,41 @@
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RouteProp } from '@react-navigation/native';
 
-import { Exercise, Exercises } from './data';
+import { Product, Products } from './data';
 
 export enum Screens {
-  SearchForm = 'SearchForm',
-  ExercisesList = 'ExercisesList',
-  Exercise = 'Exercise',
+  ProductsList = 'ProductsList',
+  Product = 'Product',
+  AddProduct = 'AddProduct',
 }
 
 export type ScreensNavigationList = {
-  SearchForm: undefined;
-  ExercisesList: { exercises: Exercises };
-  Exercise: { exercise: Exercise; color: string };
+  ProductsList: { Products: Products };
+  Product: { product: Product };
+  AddProduct: undefined;
 };
 
-export type SearchFormScreenNavigationProp = NativeStackNavigationProp<
+export type ProductsListScreenNavigationProp = NativeStackNavigationProp<
   ScreensNavigationList,
-  Screens.SearchForm
+  Screens.ProductsList
 >;
 
-export type ExercisesListScreenNavigationProp = NativeStackNavigationProp<
+export type ProductsListScreenRouteProp = RouteProp<
   ScreensNavigationList,
-  Screens.ExercisesList
+  Screens.ProductsList
 >;
 
-export type ExercisesListScreenRouteProp = RouteProp<
+export type ProductScreenNavigationProp = NativeStackNavigationProp<
   ScreensNavigationList,
-  Screens.ExercisesList
+  Screens.Product
 >;
 
-export type ExerciseScreenNavigationProp = NativeStackNavigationProp<
+export type ProductScreenRouteProp = RouteProp<
   ScreensNavigationList,
-  Screens.Exercise
+  Screens.Product
 >;
 
-export type ExerciseScreenRouteProp = RouteProp<
+export type AddProductScreenNavigationProp = NativeStackNavigationProp<
   ScreensNavigationList,
-  Screens.Exercise
+  Screens.AddProduct
 >;

@@ -1,4 +1,4 @@
-package com.exercisesearchform;
+package com.testproducts;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -18,7 +18,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "exerciseSearchForm";
+    return "testProducts";
   }
 
   /**

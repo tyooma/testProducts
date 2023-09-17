@@ -1,10 +1,11 @@
-export type Exercise = {
-  name: string;
-  type: string;
-  muscle: string;
-  difficulty: string;
-  instructions: string;
-  equipment: string;
+export type Product = {
+  id?: number;
+  title: string;
+  price: number;
+  description: string;
+  image?: string;
+  category: string;
+  liked?: boolean;
 };
 
-export type Exercises = Exercise[];
+export type Products = Product[];

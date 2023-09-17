@@ -1,4 +1,4 @@
-package com.exercisesearchform;
+package com.testproducts;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
